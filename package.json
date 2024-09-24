@@ -43,23 +43,31 @@
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "@types/rollup-plugin-peer-deps-external": "^2.2.5",
-    "tslib": "^2.7.0"
+    "tslib": "^2.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.25.0",
+    "react-i18next": "^14.0.0",
+    "i18next": "^23.0.0",
+    "i18next-http-backend": "^2.0.0"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.7",
     "@emotion/css": "^11.11.2",
     "clsx": "^2.1.1",
     "antd": "5.17.0",
     "ol": "^10.1.0",
     "dayjs": "^1.11.12",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.25.0",
     "lodash": "^4.17.21",
     "@tanstack/react-query": "^5.51.9",
     "@tanstack/react-query-devtools": "^5.51.9",
+    "zustand": "^4.5.4"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-i18next": "^14.0.0",
     "i18next": "^23.0.0",
-    "i18next-http-backend": "^2.0.0",
-    "zustand": "^4.5.4"
+    "i18next-http-backend": "^2.0.0"
   }
 }

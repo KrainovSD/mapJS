@@ -1,10 +1,8 @@
 import { utils } from "@/shared/lib";
 import type { Middleware, RequestInterface } from "@/shared/types/api";
-import { authMiddleware } from "./auth-middleware";
 import { consoleMiddleware } from "./console-middleware";
 
 const middlewares: Middleware[] = [];
-if (utils.isHasFeature("api-middleware-auth")) middlewares.push(authMiddleware);
 if (utils.isHasFeature("api-middleware-logger")) middlewares.push(consoleMiddleware);
 
 export function executeMiddlewares<T, Incoming, Body, Outcoming>(

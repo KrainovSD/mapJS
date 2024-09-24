@@ -28,6 +28,5 @@ export * from "./checkable-tag";
 export * from "./search";
 export * from "./drop-down";
 export * from "./animated-tabs";
-export * from "./accordion";
 export * from "./switch";
 export * from "./loader";

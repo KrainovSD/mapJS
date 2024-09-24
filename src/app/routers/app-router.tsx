@@ -1,12 +1,5 @@
-/* eslint-disable jsx-a11y/no-autofocus */
-
-/* eslint-disable import/no-extraneous-dependencies */
-
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-
 /* eslint-disable no-console */
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {
   Route,
   RouterProvider,
