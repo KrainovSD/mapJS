@@ -1,6 +1,7 @@
 import React from "react";
 import { MAP_CONTAINER_ID } from "../../constants";
 import { Map } from "../../lib/classes";
+import { styles } from "./styles";
 
 export function MapConstructor() {
   const mapRef = React.useRef<Map | null>(null);
@@ -14,5 +15,5 @@ export function MapConstructor() {
     };
   }, []);
 
-  return <div id={MAP_CONTAINER_ID}></div>;
+  return <div className={styles.base} id={MAP_CONTAINER_ID}></div>;
 }

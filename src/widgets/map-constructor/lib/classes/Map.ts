@@ -16,6 +16,8 @@ export class Map {
       instance: generateVectorTile({
         format: "kml",
         url: "/static/map/UIA_World_Countries_Boundaries.kml",
+        // format: "xyz",
+        // url: "static/png/Hybrid_{z}_{x}_{y}.png",
         id: "test",
       }),
     };
