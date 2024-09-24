@@ -9,10 +9,13 @@
   "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "importOrder": [
     "<THIRD_PARTY_MODULES>",
-    "^@/api/(.*)$",
-    "^@/lib/(.*)$",
-    "^@/model/(.*)$",
-    "^@/types/(.*)$",
+    "^@/app",
+    "^@/app/(.*)$",
+    "^@/pages/(.*)$",
+    "^@/widgets/(.*)$",
+    "^@/features/(.*)$",
+    "^@/entities/(.*)$",
+    "^@/shared/(.*)$",
     "^[./]"
   ],
   "importOrderSeparation": false,

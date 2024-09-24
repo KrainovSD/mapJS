@@ -3,10 +3,14 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "react-app/jest",
     "airbnb-base",
     "airbnb-typescript",
     "plugin:import/typescript",
     "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -17,9 +21,13 @@
     "sourceType": "module",
     "project": ["./tsconfig.json", "./tsconfig.node.json"],
   },
-  "plugins": ["prettier"],
+  "plugins": ["react", "react-hooks", "react-refresh", "jsx-a11y", "prettier", "@tanstack/query"],
   "rules": {
-    "react/jsx-filename-extension": "off",
+    "react-refresh/only-export-components": "warn",
+    "react/react-in-jsx-scope": ["off"],
+    "react/jsx-uses-react": ["off"],
+    "react/jsx-props-no-spreading": ["off"],
+    "react/no-unescaped-entities": ["off"],
     "@typescript-eslint/no-explicit-any": "warn",
     "eslint/no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": "off",
@@ -40,5 +48,7 @@
       "error",
       { "blankLine": "always", "prev": "*", "next": "return" },
     ],
+    "no-continue": "off",
+    "class-methods-use-this": "off",
   },
 }

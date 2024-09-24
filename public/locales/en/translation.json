@@ -1,0 +1,17 @@
+{
+  "common": {
+    "notifications": {
+      "cardGetErrorTitle": "Data retrieval error",
+      "cardGetErrorDescription": "Failed to load data, reopen the card or try again later",
+      "cardGetErrorRepeatButton": "Try again"
+    }
+  },
+  "errorPage": {
+    "text": "An unexpected error occurred!",
+    "button": "Return to homepage"
+  },
+  "notFoundPage": {
+    "text": "Page not found!",
+    "button": "Return to homepage"
+  }
+}

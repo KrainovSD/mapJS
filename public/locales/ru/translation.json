@@ -1,0 +1,18 @@
+{
+  "common": {
+    "notifications": {
+      "cardGetErrorTitle": "Ошибка получения данных",
+      "cardGetErrorDescription": "Не удалось загрузить данные, откройте карточку снова, либо попробуйте позже",
+      "cardGetErrorRepeatButton": "Попробовать еще раз"
+    }
+  },
+
+  "errorPage": {
+    "text": "Возникла непредвиденная ошибка!",
+    "button": "Вернуться на главную"
+  },
+  "notFoundPage": {
+    "text": "Страницы не существует!",
+    "button": "Вернуться на главную"
+  }
+}

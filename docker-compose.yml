@@ -1,0 +1,10 @@
+version: "2.1"
+
+services:
+  front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "no"
+    ports:
+      - 3000:80

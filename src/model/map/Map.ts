@@ -1,3 +1,4 @@
+import { getCorrectPath } from "@/lib";
 import type Map from "ol/Map";
 import View from "ol/View";
 import KML from "ol/format/KML";
@@ -32,7 +33,7 @@ export class MapModel {
 
     this.mapLayer = new VectorTileLayer({
       source: new VectorTile({
-        url: "/map/UIA_World_Countries_Boundaries.kml",
+        url: getCorrectPath("/map/UIA_World_Countries_Boundaries.kml"),
         format: new KML(),
         // projection: "EPSG:4326",
       }),
@@ -40,7 +41,7 @@ export class MapModel {
 
     const vector = new VectorLayer({
       source: new VectorSource({
-        url: "/kml/Active.kml",
+        url: getCorrectPath("/kml/Active.kml"),
         format: new KML(),
       }),
     });

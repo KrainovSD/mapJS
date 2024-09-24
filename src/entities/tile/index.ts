@@ -1,0 +1,1 @@
+export { generateVectorTile } from "./lib";
