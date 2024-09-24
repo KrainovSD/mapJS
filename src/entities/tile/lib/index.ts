@@ -1,1 +1,1 @@
-export * from "./generate-vector-tile"
+export * from "./generate-vector-tile";

@@ -1,5 +1,5 @@
 # Ignore artifacts:
 dist
-lib
+/lib
 tmp
 .prettierignore

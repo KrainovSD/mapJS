@@ -1,1 +1,1 @@
-export * from "./init-map"
+export * from "./init-map";

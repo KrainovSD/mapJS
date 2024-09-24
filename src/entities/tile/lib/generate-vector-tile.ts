@@ -1,17 +1,12 @@
 import KML from "ol/format/KML";
+import TileLayer from "ol/layer/Tile";
 import VectorTileLayer from "ol/layer/VectorTile";
-import { VectorTile } from "ol/source";
+import { OSM, VectorTile } from "ol/source";
 import { TILE_FORMATS } from "../constants";
-import type { TileFormat } from "../model";
+import type { TileInfo } from "../model";
 
-type GenerateVectorTileOptions = {
-  url: string;
-  format: TileFormat;
-  projection?: string;
-};
-
-export function generateVectorTile({ format, url, projection }: GenerateVectorTileOptions) {
-        switch (format) {
+export function generateVectorTile({ format, url, projection }: TileInfo) {
+  switch (format) {
     case TILE_FORMATS.Kml: {
       return new VectorTileLayer({
         source: new VectorTile({
@@ -22,7 +17,9 @@ export function generateVectorTile({ format, url, projection }: GenerateVectorTi
       });
     }
     default: {
-      return null;
+      return new TileLayer({
+        source: new OSM(),
+      });
     }
   }
 }
