@@ -1,4 +1,5 @@
 {
   "event-bus-logger": false,
-  "api-middleware-logger": false
+  "api-middleware-logger": false,
+  "map-settings-mock": true
 }
