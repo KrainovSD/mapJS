@@ -12,12 +12,16 @@ import { generateLayer, generateTileId, initMap } from "../index";
 export class Map {
   map: MapInstance;
 
-  tileId: string;
+  tileId: string | null = null;
 
-  constructor({ target, tile, projection, layers, isActiveDebugger }: MapConstructor) {
+  constructor({ target, ...rest }: MapConstructor) {
     this.map = initMap({
       target,
     });
+    this.init(rest);
+  }
+
+  init({ isActiveDebugger, layers, projection, tile }: Init) {
     this.tileId = tile.id;
     const initialLayers: (BaseLayer | OlLayer)[] = [generateLayer(tile, true)!];
     if (isActiveDebugger)
@@ -59,7 +63,8 @@ export class Map {
   }
 
   setTile({ tileInfo }: SetTile) {
-    const prevTileId = generateTileId(this.tileId);
+    const prevTileId = this.tileId ? generateTileId(this.tileId) : null;
+
     const prevTile = this.map
       .getAllLayers()
       .find((layer) => layer.getProperties().id === prevTileId);
@@ -69,19 +74,16 @@ export class Map {
       this.map.removeLayer(prevTile);
     }
 
+    const layers = this.map.getAllLayers();
+
     const tile = generateLayer(tileInfo, true)!;
     this.tileId = tileInfo.id;
-    this.map.addLayer(tile);
+    this.map.setLayers([tile, ...layers]);
   }
 
-  setProjection({ projection }: SetProjection) {
-    this.map.setView(
-      new View({
-        center: [0, 0],
-        zoom: 2,
-        projection,
-      }),
-    );
+  setProjection(options: SetProjection) {
+    this.clear();
+    this.init(options);
   }
 
   addDebugger() {
@@ -102,12 +104,17 @@ export class Map {
     }
   }
 
-  destroy() {
+  clear() {
     this.map.getAllLayers().forEach((layer) => {
       layer.getSource()?.dispose();
       layer.dispose();
+      this.map.removeLayer(layer);
     });
     this.map.getView().dispose();
+  }
+
+  destroy() {
+    this.clear();
     this.map.dispose();
     this.map.setTarget(undefined);
   }
@@ -121,6 +128,8 @@ type MapConstructor = {
   isActiveDebugger: boolean;
 };
 
+type Init = Omit<MapConstructor, "target">;
+
 type AddLayer = {
   layerInfo: LayerInfo;
 };
@@ -133,6 +142,4 @@ type SetTile = {
   tileInfo: LayerInfo;
 };
 
-type SetProjection = {
-  projection: Projection;
-};
+type SetProjection = Omit<MapConstructor, "target">;

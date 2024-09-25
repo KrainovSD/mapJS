@@ -38,9 +38,21 @@ export const useMapStore = create<MapStore>()(
         set({ layers: [...get().layers.filter((layer) => layer !== id)] }, false, "removeLayer");
         get().mapInstance?.removeLayer?.({ layerId: id });
       },
-      setProjection: (projection) => {
+      setProjection: ({ projection, allowMapSettings }) => {
         set({ projection }, false, "setProjection");
-        get().mapInstance?.setProjection?.({ projection });
+        const selectedTile = get().tile;
+        const selectedLayers = get().layers;
+        const selectedLayersCollection = new Set(selectedLayers);
+        const isActiveDebugger = get().isActiveDebugger;
+
+        const tile =
+          allowMapSettings.tiles.find((tile) => tile.id === selectedTile) ||
+          allowMapSettings.tiles[0];
+        const layers = allowMapSettings.layers.filter((layer) =>
+          selectedLayersCollection.has(layer.id),
+        );
+
+        get().mapInstance?.setProjection?.({ isActiveDebugger, layers, projection, tile });
       },
       setTile: (tile) => {
         set({ tile: tile.id }, false, "setTile");

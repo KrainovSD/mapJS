@@ -37,6 +37,6 @@ export type MapStore = {
   setTile: (tile: LayerInfo) => void;
   addLayer: (layer: LayerInfo) => void;
   removeLayer: (id: string) => void;
-  setProjection: (projection: Projection) => void;
+  setProjection: (options: { projection: Projection; allowMapSettings: AllowMapSettings }) => void;
   toggleDebugger: () => void;
 };
